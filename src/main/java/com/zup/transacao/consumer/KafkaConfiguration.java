@@ -25,10 +25,8 @@ public class KafkaConfiguration {
     public Map<String, Object> consumerConfigurations() {
 		Map<String, Object> properties = new HashMap<>();
 		properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaProperties.getBootstrapServers());
-		properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,
-				kafkaProperties.getConsumer().getKeyDeserializer());
-		properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
-				kafkaProperties.getConsumer().getValueDeserializer());
+		properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, kafkaProperties.getConsumer().getKeyDeserializer());
+		properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, kafkaProperties.getConsumer().getValueDeserializer());
 		properties.put(ConsumerConfig.GROUP_ID_CONFIG, kafkaProperties.getConsumer().getGroupId());
 		properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, kafkaProperties.getConsumer().getAutoOffsetReset());
 
@@ -37,16 +35,16 @@ public class KafkaConfiguration {
 
 
     @Bean
-	public ConsumerFactory<String, TransacaoMessage> transactionConsumerFactory() {
+	public ConsumerFactory<String, MensagemTransacao> transactionConsumerFactory() {
 		StringDeserializer stringDeserializer = new StringDeserializer();
-		JsonDeserializer<TransacaoMessage> jsonDeserializer = new JsonDeserializer<>(TransacaoMessage.class, false);
+		JsonDeserializer<MensagemTransacao> jsonDeserializer = new JsonDeserializer<>(MensagemTransacao.class, false);
 
 		return new DefaultKafkaConsumerFactory<>(consumerConfigurations(), stringDeserializer, jsonDeserializer);
 	}
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, TransacaoMessage> kafkaListenerContainerFactory() {
-    	ConcurrentKafkaListenerContainerFactory<String, TransacaoMessage> factory = new ConcurrentKafkaListenerContainerFactory<>();
+    public ConcurrentKafkaListenerContainerFactory<String, MensagemTransacao> kafkaListenerContainerFactory() {
+    	ConcurrentKafkaListenerContainerFactory<String, MensagemTransacao> factory = new ConcurrentKafkaListenerContainerFactory<>();
 		factory.setConsumerFactory(transactionConsumerFactory());
         return factory;
     }

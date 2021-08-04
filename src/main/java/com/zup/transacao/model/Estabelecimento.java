@@ -4,26 +4,33 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+
+import com.zup.transacao.consumer.MensagemEstabelecimento;
 
 @Entity
 public class Estabelecimento {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long codigo;
+	private Long id;
+	@NotBlank
 	private String nome;
-    private String cidade;
-    private String endereco;
+	@NotBlank
+	private String cidade;
+	@NotBlank
+	private String endereco;
 
-    public Estabelecimento() {
+    @Deprecated
+	public Estabelecimento() {
     }
     
+    public Estabelecimento(MensagemEstabelecimento estabelecimento) {
+        this.nome = estabelecimento.getNome();
+        this.endereco = estabelecimento.getEndereco();
+        this.cidade = estabelecimento.getCidade();
+    }
     
-    public Estabelecimento(String nome, String cidade, String endereco) {
-		this.nome = nome;
-		this.cidade = cidade;
-		this.endereco = endereco;
-	}
 
 	public String getNome() {
         return nome;

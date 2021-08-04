@@ -26,11 +26,18 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/zup/transacao/exceptions" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/zup/transacao/exceptions" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/zup/transacao" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.TransacaoApplication">
     <configuration name="TransacaoApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -76,5 +83,13 @@
       <updated>1627902803529</updated>
     </task>
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.sql" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/orange_talents_06_template_transacao$TransacaoApplication.ic" NAME="TransacaoApplication Coverage Results" MODIFIED="1628019521540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.zup.transacao.dto.Cartao</FILTER>
+    </SUITE>
   </component>
 </project>
